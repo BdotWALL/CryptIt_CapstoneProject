@@ -1,0 +1,439 @@
+/*-------------------------
+	Simple reset
+--------------------------*/
+
+
+*{
+	margin:0;
+	padding:0;
+}
+
+
+/*-------------------------
+	General Styles
+--------------------------*/
+
+
+html{
+	overflow:hidden;
+}
+
+a, a:visited {
+	outline:none;
+	color:#389dc1;
+}
+
+a:hover{
+	text-decoration:none;
+}
+
+section, footer, header, aside{
+	display: block;
+}
+
+
+/*-------------------------
+	The main page elements
+--------------------------*/
+
+
+body{
+	font:15px/1.3 'georgia', sans-serif;
+	color: #fff;
+	width:100%;
+	height:100%;
+	position:absolute;
+	overflow:hidden;
+}
+
+#stage{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+
+	transition:top 0.4s;
+}
+
+#stage > div{  /* The step divs */
+	height:100%;
+	position:relative;
+}
+
+
+#stage h1{
+	font-weight:normal;
+	font-size:25px;
+	text-align:center;
+	color:#fff;
+	margin-bottom:60px;
+	
+}
+
+#stage h2{
+	font-weight: normal;
+	font-size: 14px;
+	font-family: Georgia,serif;
+	margin: -40px 0 45px;
+	font-style: italic;
+}
+
+.content{
+	position:absolute;
+	text-align:center;
+	left:0;
+	top:50%;
+	width:100%;
+}
+
+.content input[type=file]{
+	display:none;
+}
+
+a.back{
+	width: 32px;
+	height: 32px;
+	background: url('../img/icons.svg') no-repeat -192px 0;
+	position: absolute;
+	cursor: pointer;
+	top: 50px;
+	left: 50%;
+	z-index: 10;
+	opacity: 0.8;
+	margin-left: -16px;
+	display:none;
+}
+
+a.back:hover{
+	opacity:1;
+}
+
+
+/*-------------------------
+	Conditional classes
+--------------------------*/
+
+
+[class*="if-"]{
+	display:none;
+}
+
+body.encrypt .if-encrypt{
+	display:block;
+}
+
+body.decrypt .if-decrypt{
+	display:block;
+}
+
+
+/*-------------------------
+	Button styles
+--------------------------*/
+.btn{
+	width:180px;
+	height:50px;
+	text-align:center;
+	text-decoration: none !important;
+	color:#fff !important;
+	text-transform: uppercase;
+	font-weight: bold;
+	border-radius:10px;
+	display:block;
+	line-height:40px;
+	box-shadow:3px 3px 0 rgba(0,0,0,0.08);
+	cursor: pointer;
+	font-size:15px;
+	margin:10px auto;
+	opacity:0.9;
+}
+
+.button:hover{
+	opacity:1;
+}
+
+.bttn::before{
+	content:'';
+	background: url(../img/icons.svg) no-repeat;
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	vertical-align: middle;
+	padding-right: 13px;
+}
+
+
+/* Styles for specific buttons */
+
+.button.browse{
+	width:180px;
+}
+
+.button.process{
+	width:190px;
+}
+
+.btn.download{
+	width:216px;
+}
+
+.btn.encrypt::before{
+	background-position: 0 0;
+}
+
+.btn.decrypt::before{
+	background-position: -96px 0;
+}
+
+.btn.browse::before{
+	background-position: -240px 0;
+}
+
+.btn.process::before{
+	background-position: -142px 0;
+}
+
+.btn.download:before{
+	background-position:-48px 0;
+}
+
+
+/*-------------------------
+	The steps
+--------------------------*/
+#background-video {
+	height: 100vh;
+	width: 100vw;
+	object-fit: cover;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
+  }
+
+  #container1 {
+	display: flex;
+	justify-content: space-between;
+	border: 3px solid #5bc0de;
+	background-color: black;
+	color: white;
+	border-radius: 6px;
+	  background: rgba(0, 0, 0, 0.73);
+	padding-left: 30px;
+	padding-right: 30px;
+  }
+
+  #container2 {
+	border: 3px solid #5bc0de;
+	background-color: black;
+	color: white;
+	border-radius: 15px;
+	background: rgba(0, 0, 0, 0.73);
+	margin-top: 30px;
+	padding:10px;
+	width: 500px;
+	margin-left: 380px;
+	padding-bottom: 30px;
+	padding-top: 30px;
+
+  }
+
+  #container3 {
+	border: 3px solid #5bc0de;
+	background-color: black;
+	color: white;
+	border-radius: 15px;
+	  background: rgba(0, 0, 0, 0.73);
+	padding:10px;
+	font-size: small;
+	width: 750px;
+	margin-left: 300px;
+	margin-bottom: 50px;
+
+  }
+
+  #container4 {
+	border: 3px solid #5bc0de;
+	background-color: black;
+	color: white;
+	border-radius: 15px;
+	background: rgba(0, 0, 0, 0.73);
+	padding:10px;
+	font-size: small;
+	width: 750px;
+	margin-left: 300px;
+	margin-bottom: 50px;
+
+  }
+
+  #container5 {
+	border: 3px solid #5bc0de;
+	background-color: black;
+	color: white;
+	border-radius: 15px;
+	background: rgba(0, 0, 0, 0.73);
+	padding:10px;
+	font-size: small;
+	width: 700px;
+	margin-left: 300px;
+	margin-bottom: 50px;
+
+  }
+
+  #container6 {
+	border: 3px solid #5bc0de;
+	background-color: black;
+	color: white;
+	border-radius: 15px;
+	background: rgba(0, 0, 0, 0.73);
+	padding:10px;
+	font-size: small;
+	width: 700px;
+	margin-left: 300px;
+	margin-bottom: 50px;
+
+  }
+
+  #container7 {
+	border: 3px solid #5bc0de;
+	background-color: black;
+	color: white;
+	border-radius: 15px;
+	background: rgba(0, 0, 0, 0.73);
+	padding:10px;
+	font-size: small;
+	width: 700px;
+	margin-left: 300px;
+	margin-bottom: 50px;
+
+  }
+
+  #container8 {
+	border: 3px solid #5bc0de;
+	background-color: black;
+	color: white;
+	border-radius: 15px;
+	background: rgba(0, 0, 0, 0.73);
+	margin-top: 30px;
+	padding:10px;
+	width: 700px;
+	margin-left: 380px;
+	padding-bottom: 30px;
+	padding-top: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+  }
+
+
+
+#step3 input[type=username]{
+	background-color: #fff;
+	border: none;
+	padding: 8px 18px;
+	line-height: 1;
+	font: inherit;
+	display: inline-block;
+	outline: none;
+	width: 300px;
+	margin-bottom: 18px;
+	border-radius: 2px;
+	box-shadow: 3px 3px 0 rgba(0,0,0,0.05);
+	font-size: 20px;
+	color:black;
+}
+
+#togglePassword {
+	color: black;
+}
+
+input::after{
+	color: black;
+}
+
+
+#step1 .content{	margin-top: -170px;}
+#step2 .content{	margin-top:-170px;}
+#step3 .content{	margin-top: -157px;}
+#step4 .content{	margin-top: -100px;}
+
+
+/*----------------------------
+	 Footer
+-----------------------------*/
+footer{
+
+	width: 770px;
+	font: normal 16px Georgia, serif;
+	padding: 15px 35px;
+	position: fixed;
+	bottom: 0;
+	left: 50%;
+	margin-left: -420px;
+	text-align: center;
+
+	background-color:#1f1f1f;
+	background-image:linear-gradient(to bottom, #1f1f1f, #101010);
+	background: rgba(0, 0, 0, 0.73);
+
+	border-radius:2px 2px 0 0;
+	box-shadow: 0 -1px 4px rgba(0,0,0,0.4);
+	z-index:1;
+}
+
+footer a.tz{
+	font-weight:normal;
+	font-size:16px !important;
+	text-decoration:none !important;
+	display:block;
+	margin-right: 300px;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	color:#bfbfbf !important;
+	z-index:1;
+}
+
+footer a.tz:before{
+	content: '';
+	background: url('http://cdn.tutorialzine.com/misc/enhance/v2_footer_bg.png') no-repeat 0 -53px;
+	width: 138px;
+	height: 20px;
+	display: inline-block;
+	position: relative;
+	bottom: -3px;
+}
+
+footer .close{
+	position: absolute;
+	cursor: pointer;
+	width: 8px;
+	height: 8px;
+	background: url('http://cdn.tutorialzine.com/misc/enhance/v2_footer_bg.png') no-repeat 0 0px;
+	top:10px;
+	right:10px;
+	z-index: 3;
+}
+
+footer #tzine-actions{
+	position: absolute;
+	top: 8px;
+	width: 500px;
+	right: 50%;
+	margin-right: -650px;
+	text-align: right;
+	z-index: 2;
+}
+
+footer #tzine-actions iframe{
+	display: inline-block;
+	height: 21px;
+	width: 95px;
+	position: relative;
+	float: left;
+	margin-top: 11px;
+}
